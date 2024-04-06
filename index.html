@@ -32,16 +32,15 @@
 </head>
 
 <body>
-  <div class="hero_area">
+  <div class="hero_area" id="home">
     <!-- header section strats -->
     <header class="header_section">
       <div class="header_top">
         <div class="container-fluid header_top_container">
-          <a class="navbar-brand " href="index.html"> <img src="logo.png" alt="Bismar Education Logo" style="height: 35px; width: 35px;"> <span>Bismar</span> Education </a>
-          <video class="hero_video" autoplay muted loop>
+          <a class="navbar-brand " href="https://bismareducation.com"> <img src="logo.png" alt="Bismar Education Logo" style="height: 35px; width: 35px;"> <span>Bismar</span> Education </a>
+          <video class="hero_video" id="hero_video" autoplay muted>
             <source src="gallery/Bismar Edu Robotic.mp4" type="video/mp4">
-            <source src="gallery/Bismar Programic.mp4" type="video/mp4">
-            <source src="gallery/PKL IndoBismar.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
           <div class="contact_nav">
             <a href="https://maps.app.goo.gl/Xn67oAaKr2PSD6Qj6" target="_blank">
@@ -79,7 +78,7 @@
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand navbar_brand_mobile" href="index.html"> <img src="logo.png" alt="Bismar Education Logo" style="height: 35px; width: 35px;"> <span>Bismar</span> Education </a>
+            <a class="navbar-brand navbar_brand_mobile" href="https://bismareducation.com"> <img src="logo.png" alt="Bismar Education Logo" style="height: 35px; width: 35px;"> <span>Bismar</span> Education </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""> </span>
@@ -88,7 +87,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="https://bismareduaction.com">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#about">About</a>
@@ -439,7 +438,7 @@ secara langsung.
     <div class="info_container layout_padding2">
       <div class="container">
         <div class="info_logo">
-          <span class="navbar-brand" href="index.html"> <span>Bismar</span> Education </a>
+          <span class="navbar-brand" href="https://bismareducation.com"> <span>Bismar</span> Education </a>
         </div>
         <div class="info_main">
           <div class="row">
@@ -450,19 +449,19 @@ secara langsung.
                 </h5>
                 <ul>
                   <li class=" active">
-                    <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="" href="#home">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="">
-                    <a class="" href="page/comingsoon.html">About </a>
+                    <a class="" href="#about">About </a>
                   </li>
                   <li class="">
-                    <a class="" href="page/comingsoon.html">Programs</a>
+                    <a class="" href="#gallery">Gallery</a>
                   </li>
                   <li class="">
-                    <a class="" href="page/comingsoon.html"> Portfolio </a>
+                    <a class="" href="#programs">Programs</a>
                   </li>
                   <li class="">
-                    <a class="" href="page/comingsoon.html"> Contact </a>
+                    <a class="" href="#contact-us"> Contact </a>
                   </li>
                 </ul>
               </div>
@@ -549,24 +548,24 @@ secara langsung.
       </p>
     </div>
   </footer>
-  <!-- footer section -->
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var videoPlayer = document.getElementById('videoPlayer');
-      var videos = ['gallery/Bismar Edu Robotic.mp4', 'gallery/Bismar Programic.mp4', 'gallery/PKL IndoBismar.mp4'];
-      var currentVideo = 0;
+    var videoPlayer = document.getElementById('hero_video');
+    var videoSources = ["gallery/Bismar Edu Robotic.mp4", "gallery/Bismar Programic.mp4", "gallery/PKL IndoBismar.mp4"];
+    var currentVideo = 0;
   
-      function playNextVideo() {
-        currentVideo = (currentVideo + 1) % videos.length;
-        videoPlayer.src = videos[currentVideo];
-        videoPlayer.play();
-      }
+    videoPlayer.src = videoSources[currentVideo];
   
-      videoPlayer.addEventListener('ended', playNextVideo);
-    });
+    videoPlayer.addEventListener('ended', function() {
+      currentVideo++;
+      if(currentVideo == videoSources.length) currentVideo = 0;
+      videoPlayer.src = videoSources[currentVideo];
+      videoPlayer.play();
+    }, false);
   </script>
+    
 
+  <!-- footer section -->
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
